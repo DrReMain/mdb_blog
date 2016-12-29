@@ -1,0 +1,56 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<title>Material Design Bootstrap</title>
+
+	<!-- Font Awesome -->
+	<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Bootstrap core CSS -->
+	<link href="{% static 'mdb/css/bootstrap.min.css' %}" rel="stylesheet">
+
+	<!-- Material Design Bootstrap -->
+	<link href="{% static 'mdb/css/mdb.min.css' %}" rel="stylesheet">
+
+	<!-- Your custom styles (optional) -->
+	<link href="{% static 'mdb/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+{% block main %}
+
+{% endblock %}
+
+
+<!-- SCRIPTS -->
+
+<!-- JQuery -->
+<script type="text/javascript" src="{% static 'mdb/js/jquery-3.1.1.min.js' %}"></script>
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{% static 'mdb/js/tether.min.js' %}"></script>
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'mdb/js/bootstrap.min.js' %}"></script>
+
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{% static 'mdb/js/mdb.min.js' %}"></script>
+
+{% block script %}
+
+{% endblock %}
+
+
+</body>
+
+</html>
