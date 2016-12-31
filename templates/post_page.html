@@ -1,0 +1,135 @@
+{% extends 'common/base.html' %}
+
+{% block styles %}
+
+
+
+
+{% endblock %}
+
+{% block main %}
+    {% include 'common/header.html' %}
+
+    <!--Main layout-->
+    <main>
+        <div class="container">
+
+            <!--Blog-->
+            <div class="row">
+                <!--Main listing-->
+                <div class="col-md-12">
+
+                    <!--Section: Post-->
+                    <section class="section section-blog-fw">
+
+                        <!--First row-->
+                        <div class="row">
+
+                            <div class="col-md-12">
+
+                                <!--Featured image-->
+                                <img src="http://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(86).jpg"
+                                     class="wow fadeIn">
+
+                                <!--Post data-->
+                                <div class="jumbotron wow fadeIn" data-wow-delay="0.3s">
+                                    <h2>文章标题文章标题文章标题文章标题</h2>
+                                    <p>作者： Dr.ReMain </p>
+                                    <p>时间： 2016年12月31日</p>
+
+                                    <!--Social shares-->
+                                    <div class="social-counters">
+
+                                        <!--Facebook-->
+                                        <a class="btn btn-fb">
+                                            <i class="fa fa-facebook left"></i>
+                                            <span class="hidden-md-down ">Facebook</span>
+                                        </a>
+                                        <span class="counter">98</span>
+
+                                        <!--Twitter-->
+                                        <a class="btn btn-tw">
+                                            <i class="fa fa-twitter left"></i>
+                                            <span class="hidden-md-down">Twitter</span>
+                                        </a>
+                                        <span class="counter">75</span>
+
+                                        <!--Google+-->
+                                        <a class="btn btn-gplus">
+                                            <i class="fa fa-google-plus left"></i>
+                                            <span class="hidden-md-down">Google+</span>
+                                        </a>
+                                        <span class="counter">87</span>
+
+                                        <!--Comments-->
+                                        <a class="btn btn-mdb">
+                                            <i class="fa fa-comments-o left"></i>
+                                            <span class="hidden-md-down">Comments</span>
+                                        </a>
+                                        <span class="counter">149</span>
+
+                                    </div>
+                                    <!--/.Social shares-->
+
+                                </div>
+                                <!--/Post data-->
+
+                                <!--Post text-->
+                                <div class="post-text wow fadeIn" data-wow-delay="0.3s">
+
+                                    <p>文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦
+                                        啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 </p>
+
+                                    <p>文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦
+                                        啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 </p>
+
+                                    <p>文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦
+                                        啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 </p>
+
+                                    <p>文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦
+                                        啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 </p>
+
+                                    <!--Pictures in post-->
+                                    <div class="post-pictures">
+
+                                        <img src="http://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(92).jpg">
+
+                                    </div>
+                                    <!--/.Pictures in post-->
+
+                                </div>
+                                <!--/Post text-->
+
+                                <hr class="wow fadeIn" data-wow-delay="0.3s">
+
+                            </div>
+
+                        </div>
+                        <!--/First row-->
+
+                    </section>
+                    <!--/.Section: Post-->
+
+                </div>
+                <!--/.Main listing-->
+
+            </div>
+            <!--/.Blog-->
+
+        </div>
+    </main>
+    <!--/Main layout-->
+
+    {% include 'common/footer.html' %}
+{% endblock %}
+
+{% block script %}
+    <script>
+        // SideNav init
+        $(".button-collapse").sideNav();
+        var el = document.querySelector('.custom-scrollbar');
+        Ps.initialize(el);
+
+        new WOW().init();
+    </script>
+{% endblock %}
