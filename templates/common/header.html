@@ -38,48 +38,29 @@
 		<!-- Side navigation links -->
 		<li>
 			<ul class="collapsible collapsible-accordion">
-				<li>
-					<a class="collapsible-header waves-effect arrow-r">
-						<i class="fa fa-html5"></i>
-						做有逼格的前端
-						<i class="fa fa-angle-down rotate-icon"></i>
-					</a>
-					<div class="collapsible-body">
-						<ul>
-							<li><a href="#" class="waves-effect">CSS</a></li>
-							<li><a href="#" class="waves-effect">JavaScript</a></li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<a class="collapsible-header waves-effect arrow-r">
-						<i class="fa fa-code"></i>
-						好高冷的后端
-						<i class="fa fa-angle-down rotate-icon"></i>
-					</a>
-					<div class="collapsible-body">
-						<ul>
-							<li><a href="#" class="waves-effect">Node.js</a></li>
-							<li><a href="#" class="waves-effect">Python</a></li>
-							<li><a href="#" class="waves-effect">Java</a></li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<a class="collapsible-header waves-effect arrow-r">
-						<i class="fa fa-money"></i>
-						从入门到破产
-						<i class="fa fa-angle-down rotate-icon"></i>
-					</a>
-					<div class="collapsible-body">
-						<ul>
-							<li><a href="#" class="waves-effect">VC / PE</a></li>
-							<li><a href="#" class="waves-effect">IPO / 借壳</a></li>
-							<li><a href="#" class="waves-effect">重组并购</a></li>
-							<li><a href="#" class="waves-effect">股市债市</a></li>
-						</ul>
-					</div>
-				</li>
+
+				{# 循环父分类 #}
+				{% for parent_item in CategoryParent_data %}
+					<li>
+						<a class="collapsible-header waves-effect arrow-r">
+							<i class="fa {{ parent_item.icon }}"></i>
+							{{ parent_item.name }}
+							<i class="fa fa-angle-down rotate-icon"></i>
+						</a>
+						<div class="collapsible-body">
+							<ul>
+								{# 循环子分类， 子分类的 category_parent 字段的 name 值 == 父分类的 name 值时 #}
+								{% for child_item in CategoryChild_data %}
+									{% if child_item.category_parent.name == parent_item.name %}
+										<li><a href="#" class="waves-effect">{{ child_item.name }}</a></li>
+									{% endif %}
+								{% endfor %}
+								{# /. 循环子分类 #}
+							</ul>
+						</div>
+					</li>
+				{% endfor %}
+				{# /. 循环父分类 #}
 			</ul>
 		</li>
 		<!--/. Side navigation links -->
@@ -102,7 +83,7 @@
 				<li class="breadcrumb-item"><a href="/">首页</a></li>
 				{% if url == '/home' %}
 					<li class="breadcrumb-item"><a href="javascript: void(0)">博客</a></li>
-				{% elif url == '/post' %}
+				{% else %}
 					<li class="breadcrumb-item"><a href="/home">博客</a></li>
 					<li class="breadcrumb-item"><a href="javascript: void(0)">文章</a></li>
 				{% endif %}

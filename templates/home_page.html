@@ -118,6 +118,38 @@
 				</div>
 				<!--/Third row-->
 
+				{% for article_item in article_list %}
+					<div class="row">
+
+						<!--First column-->
+						<div class="col-md-5 mb-r wow fadeIn" data-wow-delay="0.4s">
+							<!--Featured image-->
+							<div class="view overlay hm-white-slight">
+								<img src="{{ article_item.article_img }}">
+								<a>
+									<div class="mask"></div>
+								</a>
+							</div>
+						</div>
+						<!--/First column-->
+
+						<!--Second column-->
+						<div class="col-md-7 mb-r">
+							<!--Excerpt-->
+							<h5 class="red-text "><i class="fa {{ article_item.category_parent.icon }} "></i>{{ article_item.category_child.name }}</h5>
+							<h4>{{ article_item.title }}</h4>
+							<p>{{ article_item.desc }}</p>
+							<p>by <a><strong>{{ article_item.author.name }}</strong></a>, {{ article_item.publication_date }}</p>
+							<a class="btn btn-primary " href="/post/{{ article_item.id }}">Read more</a>
+						</div>
+						<!--/Second column-->
+
+					</div>
+
+					<hr>
+				{% endfor %}
+
+
 			</section>
 			<!--/Section: Blog v.3-->
 

@@ -1,22 +1,32 @@
 from django.shortcuts import render, HttpResponseRedirect
+from blog.models import *
 
 
 # Create your views here.
 
 def main(request):
-    return HttpResponseRedirect('/index')
+	return HttpResponseRedirect('/index')
 
 
 def index(request):
-    return render(request, 'index.html')
+	return render(request, 'index.html')
 
 
 def homepage(request):
-    url = request.path
+	url = request.path
+	CategoryParent_data = CategoryParent.objects.all()
+	CategoryChild_data = CategoryChild.objects.all()
 
-    return render(request, 'home_page.html', locals())
+	article_list = Article.objects.all()
+
+	return render(request, 'home_page.html', locals())
 
 
-def postpage(request):
-    url = request.path
-    return render(request, 'post_page.html', locals())
+def postpage(request, id):
+	url = request.path
+	CategoryParent_data = CategoryParent.objects.all()
+	CategoryChild_data = CategoryChild.objects.all()
+
+	index = id
+
+	return render(request, 'post_page.html', locals())

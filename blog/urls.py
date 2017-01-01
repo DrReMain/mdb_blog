@@ -9,6 +9,6 @@ urlpatterns = [
 
 	url(r'^home$', views.homepage, name="homepage"),
 
-	url(r'^post$', views.postpage, name="postpage")
+	url(r'^post/(?P<id>\d+)$', views.postpage, name="postpage")
 
 ]
