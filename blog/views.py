@@ -14,18 +14,20 @@ def index(request):
 
 def homepage(request):
 	url = request.path
-	CategoryParent_data = CategoryParent.objects.all()
-	CategoryChild_data = CategoryChild.objects.all()
+
+	category_list = Category.objects.all()
 
 	article_list = Article.objects.all()
+
+
 
 	return render(request, 'home_page.html', locals())
 
 
 def postpage(request, id):
 	url = request.path
-	CategoryParent_data = CategoryParent.objects.all()
-	CategoryChild_data = CategoryChild.objects.all()
+
+	category_list = Category.objects.all()
 
 	index = id
 

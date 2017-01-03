@@ -4,123 +4,127 @@
 
 <!--Double navigation-->
 <header>
-	<!-- Sidebar navigation -->
-	<ul id="slide-out" class="side-nav fixed custom-scrollbar">
+    <!-- Sidebar navigation -->
+    <ul id="slide-out" class="side-nav fixed custom-scrollbar">
 
-		<!-- Logo -->
-		<li>
-			<div class="logo-wrapper waves-light sn-avatar-wrapper">
-				{#                    <a href="#">#}
-				<img src="{% static 'images/profile.gif' %}" class="rounded-circle">
-				{#                    </a>#}
-			</div>
-		</li>
-		<!--/. Logo -->
+        <!-- Logo -->
+        <li>
+            <div class="logo-wrapper waves-light sn-avatar-wrapper">
+                {#                    <a href="#">#}
+                <img src="{% static 'images/profile.gif' %}" class="rounded-circle">
+                {#                    </a>#}
+            </div>
+        </li>
+        <!--/. Logo -->
 
-		<!--About-->
-		<li>
-			<div class="about">
-				<p>Dr.ReMain</p>
-				<p><span class="tag tag-danger">现在是个前端 <(￣ˇ￣)/ </span></p>
-			</div>
-		</li>
-		<!--/.About-->
+        <!--About-->
+        <li>
+            <div class="about">
+                <p>Dr.ReMain</p>
+                <p><span class="tag tag-danger">现在是个前端 <(￣ˇ￣)/ </span></p>
+            </div>
+        </li>
+        <!--/.About-->
 
-		<!--Social-->
-		<li>
-			<ul class="social">
-				<li><a href="https://github.com/DrReMain" target="_blank"
-				       class="icons-sm ins-ic"><i class="fa fa-github"> </i></a></li>
-			</ul>
-		</li>
-		<!--/Social-->
+        <!--Social-->
+        <li>
+            <ul class="social">
+                <li><a href="https://github.com/DrReMain" target="_blank"
+                       class="icons-sm ins-ic"><i class="fa fa-github"> </i></a></li>
+            </ul>
+        </li>
+        <!--/Social-->
 
-		<!-- Side navigation links -->
-		<li>
-			<ul class="collapsible collapsible-accordion">
+        <!-- Side navigation links -->
+        <li>
+            <ul class="collapsible collapsible-accordion">
 
-				{# 循环父分类 #}
-				{% for parent_item in CategoryParent_data %}
-					<li>
-						<a class="collapsible-header waves-effect arrow-r">
-							<i class="fa {{ parent_item.icon }}"></i>
-							{{ parent_item.name }}
-							<i class="fa fa-angle-down rotate-icon"></i>
-						</a>
-						<div class="collapsible-body">
-							<ul>
-								{# 循环子分类， 子分类的 category_parent 字段的 name 值 == 父分类的 name 值时 #}
-								{% for child_item in CategoryChild_data %}
-									{% if child_item.category_parent.name == parent_item.name %}
-										<li><a href="#" class="waves-effect">{{ child_item.name }}</a></li>
-									{% endif %}
-								{% endfor %}
-								{# /. 循环子分类 #}
-							</ul>
-						</div>
-					</li>
-				{% endfor %}
-				{# /. 循环父分类 #}
-			</ul>
-		</li>
-		<!--/. Side navigation links -->
-
-	</ul>
-	<!--/. Sidebar navigation -->
-
-	<!--Navbar-->
-	<nav class="navbar navbar-fixed-top scrolling-navbar double-nav">
-
-		<!-- SideNav slide-out button -->
-		<div class="float-xs-left">
-			<a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
-		</div>
-
-		<!-- Breadcrumb-->
-		<div class="breadcrumb-dn">
-			{#            <p> Dr.ReMain`s Blog Home Page {{ url }}  </p>#}
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="/">首页</a></li>
-				{% if url == '/home' %}
-					<li class="breadcrumb-item"><a href="javascript: void(0)">博客</a></li>
-				{% else %}
-					<li class="breadcrumb-item"><a href="/home">博客</a></li>
-					<li class="breadcrumb-item"><a href="javascript: void(0)">文章</a></li>
-				{% endif %}
+                {# 循环父分类 #}
+                {% for p_cate in category_list %}
+                    {% if p_cate.level == 1 %}
+                        <li>
+                            <a class="collapsible-header waves-effect arrow-r">
+                                <i class="fa {{ p_cate.icon }}"></i>
+                                {{ p_cate.name }}
+                                <i class="fa fa-angle-down rotate-icon"></i>
+                            </a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    {# 循环子分类#}
+                                    {% for c_cate in category_list %}
+                                        {% if c_cate.level == 2 and c_cate.parent == p_cate.name %}
+                                            <li><a href="#" class="waves-effect">{{ c_cate.name }}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {# /. 循环子分类 #}
+                                </ul>
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
 
 
-			</ol>
-		</div>
+                {# /. 循环父分类 #}
+            </ul>
+        </li>
+        <!--/. Side navigation links -->
+
+    </ul>
+    <!--/. Sidebar navigation -->
+
+    <!--Navbar-->
+    <nav class="navbar navbar-fixed-top scrolling-navbar double-nav">
+
+        <!-- SideNav slide-out button -->
+        <div class="float-xs-left">
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
+        </div>
+
+        <!-- Breadcrumb-->
+        <div class="breadcrumb-dn">
+            {#            <p> Dr.ReMain`s Blog Home Page {{ url }}  </p>#}
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">首页</a></li>
+                {% if url == '/home' %}
+                    <li class="breadcrumb-item"><a href="javascript: void(0)">博客</a></li>
+                {% else %}
+                    <li class="breadcrumb-item"><a href="/home">博客</a></li>
+                    <li class="breadcrumb-item"><a href="javascript: void(0)">文章</a></li>
+                {% endif %}
 
 
-		{#        <ul class="nav navbar-nav float-xs-right">#}
-		{##}
-		{#            <li class="nav-item ">#}
-		{#                <a class="nav-link"> <span class="tag red z-depth-1">2</span> <i class="fa fa-shopping-cart"></i>#}
-		{#                    <span class="hidden-sm-down">Cart</span></a>#}
-		{#            </li>#}
-		{#            <li class="nav-item ">#}
-		{#                <a class="nav-link"><i class="fa fa-envelope"></i> <span class="hidden-sm-down">Contact</span></a>#}
-		{#            </li>#}
-		{#            <li class="nav-item ">#}
-		{#                <a class="nav-link"><i class="fa fa-comments-o"></i> <span class="hidden-sm-down">Support</span></a>#}
-		{#            </li>#}
-		{#            <li class="nav-item ">#}
-		{#                <a class="nav-link"><i class="fa fa-sign-in"></i> <span class="hidden-sm-down">Register</span></a>#}
-		{#            </li>#}
-		{#            <li class="nav-item dropdown">#}
-		{#                <a class="nav-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"#}
-		{#                   aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span#}
-		{#                        class="hidden-sm-down">Profile</span></a>#}
-		{#                <div class="dropdown-menu dropdown-primary dd-right" aria-labelledby="dropdownMenu1"#}
-		{#                     data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">#}
-		{#                    <a class="dropdown-item" href="#">Logout</a>#}
-		{#                    <a class="dropdown-item" href="#">My account</a>#}
-		{#                </div>#}
-		{#            </li>#}
-		{#        </ul>#}
+            </ol>
+        </div>
 
-	</nav>
-	<!--/.Navbar-->
+
+        {#        <ul class="nav navbar-nav float-xs-right">#}
+        {##}
+        {#            <li class="nav-item ">#}
+        {#                <a class="nav-link"> <span class="tag red z-depth-1">2</span> <i class="fa fa-shopping-cart"></i>#}
+        {#                    <span class="hidden-sm-down">Cart</span></a>#}
+        {#            </li>#}
+        {#            <li class="nav-item ">#}
+        {#                <a class="nav-link"><i class="fa fa-envelope"></i> <span class="hidden-sm-down">Contact</span></a>#}
+        {#            </li>#}
+        {#            <li class="nav-item ">#}
+        {#                <a class="nav-link"><i class="fa fa-comments-o"></i> <span class="hidden-sm-down">Support</span></a>#}
+        {#            </li>#}
+        {#            <li class="nav-item ">#}
+        {#                <a class="nav-link"><i class="fa fa-sign-in"></i> <span class="hidden-sm-down">Register</span></a>#}
+        {#            </li>#}
+        {#            <li class="nav-item dropdown">#}
+        {#                <a class="nav-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"#}
+        {#                   aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span#}
+        {#                        class="hidden-sm-down">Profile</span></a>#}
+        {#                <div class="dropdown-menu dropdown-primary dd-right" aria-labelledby="dropdownMenu1"#}
+        {#                     data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">#}
+        {#                    <a class="dropdown-item" href="#">Logout</a>#}
+        {#                    <a class="dropdown-item" href="#">My account</a>#}
+        {#                </div>#}
+        {#            </li>#}
+        {#        </ul>#}
+
+    </nav>
+    <!--/.Navbar-->
 </header>
 <!--/Double navigation-->
