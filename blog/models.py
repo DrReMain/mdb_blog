@@ -6,7 +6,6 @@ from django.db import models
 
 # Create your models here.
 
-#
 class CategoryParent(models.Model):
 	icon = models.CharField(max_length=40, null=True, verbose_name='父分类图标（奥森字体class名， 例： fa-html5）')
 	name = models.CharField(max_length=40, null=True, verbose_name='父分类名称')
@@ -17,7 +16,6 @@ class CategoryParent(models.Model):
 
 	def __unicode__(self):
 		return self.name
-
 
 class CategoryChild(models.Model):
 	name = models.CharField(max_length=40, null=True, verbose_name='子分类名称')

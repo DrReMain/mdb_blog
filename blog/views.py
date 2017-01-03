@@ -28,6 +28,7 @@ def homepage(request):
 
 	cate_desc_content = cate_desc()
 
+	# 根据分类名称，查询所属的文章
 	def article_scope():
 		if article_scope_key == None:
 			# 如果没有请求分类，则返回完整的文章列表
