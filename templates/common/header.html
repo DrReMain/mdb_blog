@@ -10,9 +10,9 @@
 		<!-- Logo -->
 		<li>
 			<div class="logo-wrapper waves-light sn-avatar-wrapper">
-				{#                    <a href="#">#}
-				<img src="{% static 'images/profile.gif' %}" class="rounded-circle">
-				{#                    </a>#}
+				<a href="/home">
+					<img src="{% static 'images/profile.gif' %}" class="rounded-circle">
+				</a>
 			</div>
 		</li>
 		<!--/. Logo -->
@@ -52,7 +52,8 @@
 								{# 循环子分类， 子分类的 category_parent 字段的 name 值 == 父分类的 name 值时 #}
 								{% for child_item in CategoryChild_data %}
 									{% if child_item.category_parent.name == parent_item.name %}
-										<li><a href="/home?category={{ child_item.name }}" class="waves-effect">{{ child_item.name }}</a></li>
+										<li><a href="/home?category={{ child_item.name }}"
+										       class="waves-effect">{{ child_item.name }}</a></li>
 									{% endif %}
 								{% endfor %}
 								{# /. 循环子分类 #}
