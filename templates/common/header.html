@@ -52,7 +52,7 @@
 								{# 循环子分类， 子分类的 category_parent 字段的 name 值 == 父分类的 name 值时 #}
 								{% for child_item in CategoryChild_data %}
 									{% if child_item.category_parent.name == parent_item.name %}
-										<li><a href="#" class="waves-effect">{{ child_item.name }}</a></li>
+										<li><a href="/home?category={{ child_item.name }}" class="waves-effect">{{ child_item.name }}</a></li>
 									{% endif %}
 								{% endfor %}
 								{# /. 循环子分类 #}
@@ -82,7 +82,7 @@
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="/">首页</a></li>
 				{% if url == '/home' %}
-					<li class="breadcrumb-item"><a href="javascript: void(0)">博客</a></li>
+					<li class="breadcrumb-item"><a href="/home">博客</a></li>
 				{% else %}
 					<li class="breadcrumb-item"><a href="/home">博客</a></li>
 					<li class="breadcrumb-item"><a href="javascript: void(0)">文章</a></li>

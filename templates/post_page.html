@@ -8,128 +8,119 @@
 {% endblock %}
 
 {% block main %}
-    {% include 'common/header.html' %}
+	{% include 'common/header.html' %}
 
-    <!--Main layout-->
-    <main>
-        <div class="container">
+	<!--Main layout-->
+	<main>
+		<div class="container">
 
-            <!--Blog-->
-            <div class="row">
-                <!--Main listing-->
-                <div class="col-md-12">
+			<!--Blog-->
+			<div class="row">
+				<!--Main listing-->
+				<div class="col-md-12">
 
-                    <!--Section: Post-->
-                    <section class="section section-blog-fw">
+					<!--Section: Post-->
+					<section class="section section-blog-fw">
 
-                        <!--First row-->
-                        <div class="row">
+						<!--First row-->
+						<div class="row">
 
-                            <div class="col-md-12">
+							<div class="col-md-12">
 
-                                <!--Featured image-->
-                                <img src="http://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(86).jpg"
-                                     class="wow fadeIn">
+								<!--Featured image-->
+								<img src="{{ article.article_img }}"
+								     class="wow fadeIn">
 
-                                <!--Post data-->
-                                <div class="jumbotron wow fadeIn" data-wow-delay="0.3s">
-                                    <h2>文章标题文章标题文章标题文章标题  {{ index }}   </h2>
-                                    <p>作者： Dr.ReMain </p>
-                                    <p>时间： 2016年12月31日</p>
+								<!--Post data-->
+								<div class="jumbotron wow fadeIn" data-wow-delay="0.3s">
+									<h2>{{ article.title }}</h2>
+									<p>作者： {{ article.author.name }} </p>
+									<p>时间： {{ article.publication_date }}</p>
 
-                                    <!--Social shares-->
-{#                                    <div class="social-counters">#}
-{##}
-{#                                        <!--Facebook-->#}
-{#                                        <a class="btn btn-fb">#}
-{#                                            <i class="fa fa-facebook left"></i>#}
-{#                                            <span class="hidden-md-down ">Facebook</span>#}
-{#                                        </a>#}
-{#                                        <span class="counter">98</span>#}
-{##}
-{#                                        <!--Twitter-->#}
-{#                                        <a class="btn btn-tw">#}
-{#                                            <i class="fa fa-twitter left"></i>#}
-{#                                            <span class="hidden-md-down">Twitter</span>#}
-{#                                        </a>#}
-{#                                        <span class="counter">75</span>#}
-{##}
-{#                                        <!--Google+-->#}
-{#                                        <a class="btn btn-gplus">#}
-{#                                            <i class="fa fa-google-plus left"></i>#}
-{#                                            <span class="hidden-md-down">Google+</span>#}
-{#                                        </a>#}
-{#                                        <span class="counter">87</span>#}
-{##}
-{#                                        <!--Comments-->#}
-{#                                        <a class="btn btn-mdb">#}
-{#                                            <i class="fa fa-comments-o left"></i>#}
-{#                                            <span class="hidden-md-down">Comments</span>#}
-{#                                        </a>#}
-{#                                        <span class="counter">149</span>#}
-{##}
-{#                                    </div>#}
-                                    <!--/.Social shares-->
+									<!--Social shares-->
+									{#                                    <div class="social-counters">#}
+									{##}
+									{#                                        <!--Facebook-->#}
+									{#                                        <a class="btn btn-fb">#}
+									{#                                            <i class="fa fa-facebook left"></i>#}
+									{#                                            <span class="hidden-md-down ">Facebook</span>#}
+									{#                                        </a>#}
+									{#                                        <span class="counter">98</span>#}
+									{##}
+									{#                                        <!--Twitter-->#}
+									{#                                        <a class="btn btn-tw">#}
+									{#                                            <i class="fa fa-twitter left"></i>#}
+									{#                                            <span class="hidden-md-down">Twitter</span>#}
+									{#                                        </a>#}
+									{#                                        <span class="counter">75</span>#}
+									{##}
+									{#                                        <!--Google+-->#}
+									{#                                        <a class="btn btn-gplus">#}
+									{#                                            <i class="fa fa-google-plus left"></i>#}
+									{#                                            <span class="hidden-md-down">Google+</span>#}
+									{#                                        </a>#}
+									{#                                        <span class="counter">87</span>#}
+									{##}
+									{#                                        <!--Comments-->#}
+									{#                                        <a class="btn btn-mdb">#}
+									{#                                            <i class="fa fa-comments-o left"></i>#}
+									{#                                            <span class="hidden-md-down">Comments</span>#}
+									{#                                        </a>#}
+									{#                                        <span class="counter">149</span>#}
+									{##}
+									{#                                    </div>#}
+									<!--/.Social shares-->
 
-                                </div>
-                                <!--/Post data-->
+								</div>
+								<!--/Post data-->
 
-                                <!--Post text-->
-                                <div class="post-text wow fadeIn" data-wow-delay="0.3s">
+								<!--Post text-->
+								<div class="post-text wow fadeIn" data-wow-delay="0.3s">
+									{% autoescape off %}
+										{{ article.content }}
+									{% endautoescape %}
 
-                                    <p>文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦
-                                        啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 </p>
+									{#                                    <!--Pictures in post-->#}
+									{#                                    <div class="post-pictures">#}
+									{##}
+									{#                                        <img src="http://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(92).jpg">#}
+									{##}
+									{#                                    </div>#}
+									{#                                    <!--/.Pictures in post-->#}
 
-                                    <p>文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦
-                                        啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 </p>
+								</div>
+								<!--/Post text-->
 
-                                    <p>文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦
-                                        啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 </p>
+								<hr class="wow fadeIn" data-wow-delay="0.3s">
 
-                                    <p>文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦
-                                        啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 文章内容拉拉啊啦 啦 </p>
+							</div>
 
-                                    <!--Pictures in post-->
-                                    <div class="post-pictures">
+						</div>
+						<!--/First row-->
 
-                                        <img src="http://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(92).jpg">
+					</section>
+					<!--/.Section: Post-->
 
-                                    </div>
-                                    <!--/.Pictures in post-->
+				</div>
+				<!--/.Main listing-->
 
-                                </div>
-                                <!--/Post text-->
+			</div>
+			<!--/.Blog-->
 
-                                <hr class="wow fadeIn" data-wow-delay="0.3s">
+		</div>
+	</main>
+	<!--/Main layout-->
 
-                            </div>
-
-                        </div>
-                        <!--/First row-->
-
-                    </section>
-                    <!--/.Section: Post-->
-
-                </div>
-                <!--/.Main listing-->
-
-            </div>
-            <!--/.Blog-->
-
-        </div>
-    </main>
-    <!--/Main layout-->
-
-    {% include 'common/footer.html' %}
+	{% include 'common/footer.html' %}
 {% endblock %}
 
 {% block script %}
-    <script>
-        // SideNav init
-        $(".button-collapse").sideNav();
-        var el = document.querySelector('.custom-scrollbar');
-        Ps.initialize(el);
+	<script>
+		// SideNav init
+		$(".button-collapse").sideNav();
+		var el = document.querySelector('.custom-scrollbar');
+		Ps.initialize(el);
 
-        new WOW().init();
-    </script>
+		new WOW().init();
+	</script>
 {% endblock %}

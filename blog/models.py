@@ -6,6 +6,7 @@ from django.db import models
 
 # Create your models here.
 
+#
 class CategoryParent(models.Model):
 	icon = models.CharField(max_length=40, null=True, verbose_name='父分类图标（奥森字体class名， 例： fa-html5）')
 	name = models.CharField(max_length=40, null=True, verbose_name='父分类名称')
@@ -21,6 +22,7 @@ class CategoryParent(models.Model):
 class CategoryChild(models.Model):
 	name = models.CharField(max_length=40, null=True, verbose_name='子分类名称')
 	category_parent = models.ForeignKey(CategoryParent, verbose_name='子分类所属')
+	category_desc = models.TextField(max_length=200, null=True, verbose_name='分类描述')
 
 	class Meta:
 		verbose_name = '子分类'
@@ -43,8 +45,8 @@ class Author(models.Model):
 class Article(models.Model):
 
 	article_img = models.URLField(null=True)
-	category_parent = models.ForeignKey(CategoryParent, verbose_name='所属父分类')
-	category_child = models.ForeignKey(CategoryChild, verbose_name='所属子分类')
+	category_parent = models.ForeignKey(CategoryParent, verbose_name='所属父分类', null=True)
+	category_child = models.ForeignKey(CategoryChild, verbose_name='所属子分类', null=True)
 	title = models.CharField(max_length=200, default='文章标题', verbose_name='文章标题')
 	desc = models.TextField(max_length=500, null=True, verbose_name='文章描述')
 	author = models.ForeignKey(Author, verbose_name='作者')
