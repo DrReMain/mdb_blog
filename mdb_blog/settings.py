@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -24,7 +23,7 @@ SECRET_KEY = 'ho@2a5(kyw5$4)u(2nt%%nt+h0#bn419%+xmi75ilcz453n!j='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'192.168.2.139', u'192.168.11.161', u'123.57.30.90']
+ALLOWED_HOSTS = [u'123.57.30.90', u'localhost']
 
 # Application definition
 
@@ -75,8 +74,12 @@ WSGI_APPLICATION = 'mdb_blog.wsgi.application'
 
 DATABASES = {
 	'default': {
-		'ENGINE': 'django.db.backends.sqlite3',
-		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+		'ENGINE': 'django.db.backends.mysql',
+		'NAME': 'mdb_blog',
+		'USER': 'root',
+		'PASSWORD': '123456',
+		'HOST': '127.0.0.1',
+		'PORT': '3306',
 	}
 }
 
