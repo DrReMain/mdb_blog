@@ -23,7 +23,7 @@ SECRET_KEY = 'ho@2a5(kyw5$4)u(2nt%%nt+h0#bn419%+xmi75ilcz453n!j='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'123.57.30.90', u'localhost']
+ALLOWED_HOSTS = [u'123.57.30.90', u'localhost', u'www.drremain.cn', u'drremain.cn']
 
 # Application definition
 
